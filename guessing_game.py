@@ -3,7 +3,13 @@ def game(wins=0, losses=0):
     attempts=7
     number=random.randint(1,100)
     for turn in range(attempts):
-        guess=int(input(f"Turn {turn} Type a number between 1 and 100: "))
+        while True:
+            try:
+                guess=int(input(f"Turn {turn+1}, Type a number between 1 and 100: "))
+                break
+            except ValueError:
+                print("Input a valid number ")
+                continue
         if guess==number:
             print("You won ")
             wins+=1
