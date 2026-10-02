@@ -1,7 +1,12 @@
 import random
 print("Welcome to Rock-Paper-Scissors")
 choices_str = ["ROCK","PAPER","SCISSORS"]
-choices_num = ["1","2","3"]
+choices_map = {
+    "1" : "ROCK",
+    "2" : "PAPER",
+    "3" : "SCISSORS"
+}
+"""
 def choice_to_str(choice):
     if choice == "1":
         choice = "ROCK"
@@ -10,9 +15,9 @@ def choice_to_str(choice):
     elif choice == "3":
         choice = "SCISSORS"
     return choice
-
+"""
 def check_winner(computer,user):
-    computer = choice_to_str(computer)
+    computer = choices_map[computer]
     print(f"The computer chose {computer}")
 
     if user == computer:
@@ -38,8 +43,8 @@ def user_choice():
                 choice = input("Your choice: ").strip().upper()
                 if choice in choices_str:
                     break
-                elif choice in choices_num:
-                    choice=choice_to_str(choice)
+                elif choice in choices_map:
+                    choice=choices_map[choice]                    
                     break
                     
                 else:
